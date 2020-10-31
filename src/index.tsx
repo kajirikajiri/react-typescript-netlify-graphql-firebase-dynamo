@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import ApolloClient from "apollo-boost";
 import gql from "graphql-tag";
 import { ApolloProvider } from 'react-apollo';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import About from './pages/About'
 
 const client = new ApolloClient({
   uri: 'https://api.github.com/graphql',
@@ -48,6 +50,10 @@ ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
       <App />
+      <Router>
+        <Route path="/About" component={About}/>
+        <Link to="/About">About</Link>
+      </Router>
     </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')
