@@ -1,0 +1,8 @@
+dynamo, firebaseに接続成功した。
+環境変数はnetlifyに設定した
+.envはgitignoreした
+リファクタしてない
+
+dynamo, firebaseをgraphqlにしたい
+環境変数の扱いが不明。netlifyから取得できるか？
+デプロイ成功させる
