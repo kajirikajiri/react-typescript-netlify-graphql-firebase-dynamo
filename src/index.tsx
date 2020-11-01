@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ApolloClient from "apollo-boost";
 import gql from "graphql-tag";
 import { ApolloProvider } from 'react-apollo';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import About from './pages/About'
+import AddUser from './pages/addUser'
+import Root from './pages/Root'
+import AddMovie from './pages/AddMovie'
+import ShowUsers from './pages/ShowUsers'
+import ShowMovies from './pages/ShowMovies'
 
 const client = new ApolloClient({
   uri: 'https://api.github.com/graphql',
@@ -46,13 +49,24 @@ client
   })
   .then(result => console.log(result));
 
+const list= [
+  <Link to="/">Root</Link>,
+  <Link style={{margin: '0 5px'}} to="/AddUser">Add User</Link>,
+  <Link to="/ShowUsers">Show Users</Link>,
+  <Link style={{margin: '0 5px'}} to="/AddMovie">Add Movie</Link>,
+  <Link to="/ShowMovies">Show Movies</Link>,
+  <Route exact path="/" render={()=><Root/>}/>,
+  <Route path="/AddUser" render={()=><AddUser/>}/>,
+  <Route path="/AddMovie" render={()=><AddMovie/>}/>,
+  <Route path="/ShowUsers" render={()=><ShowUsers/>}/>,
+  <Route path="/ShowMovies" render={()=><ShowMovies/>}/>,
+]
+
 ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <App />
       <Router>
-        <Route path="/About" component={About}/>
-        <Link to="/About">About</Link>
+        {list}
       </Router>
     </ApolloProvider>
   </React.StrictMode>,
