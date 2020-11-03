@@ -1,4 +1,4 @@
-export default movies = [
+const movies = [
     {
         "year": 2013,
         "title": "Rush",
@@ -103492,3 +103492,5 @@ export default movies = [
         }
     }
 ]
+
+export default movies

@@ -4,8 +4,10 @@ REACT_APP_DYNAMO_REGION,
 REACT_APP_DYNAMO_SECRET_ACCESS_KEY,
 } = process.env
 
-export default env = {
+const env = {
   region: REACT_APP_DYNAMO_REGION,
   accessKeyId: REACT_APP_DYNAMO_ACCESS_KEY_ID,
   secretAccessKey: REACT_APP_DYNAMO_SECRET_ACCESS_KEY
 }
+
+export default env
