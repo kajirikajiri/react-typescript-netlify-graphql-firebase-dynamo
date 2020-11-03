@@ -7,7 +7,7 @@ aws.config.update(credentials);
 const dynamodb = new aws.DynamoDB();
 
 export function createMoviesTable() {
-  var params = {
+  const params = {
     TableName: "Movies",
     KeySchema: [
       { AttributeName: "year", KeyType: "HASH" },
