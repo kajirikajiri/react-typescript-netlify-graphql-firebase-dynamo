@@ -1,9 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 const query = gql`
   {
