@@ -7,21 +7,16 @@ aws.config.update(credentials);
 
 const dynamodb = new aws.DynamoDB.DocumentClient();
 
-export const getMovies = async () => {
+export const getMovies = async (year: number) => {
   const params = {
     TableName: "Movies",
-    ProjectionExpression: "#yr, title, info.genres, info.actors[0]",
-    KeyConditionExpression:
-      "#yr = :yyyy and title between :letter1 and :letter2",
+    KeyConditionExpression: "#yr = :yyyy",
     ExpressionAttributeNames: {
       "#yr": "year",
     },
     ExpressionAttributeValues: {
-      ":yyyy": 1992,
-      ":letter1": "A",
-      ":letter2": "L",
+      ":yyyy": year,
     },
-    // Limit: 10
   };
   const promise = (): Promise<{
     Items: MovieTypes[];
